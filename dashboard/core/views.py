@@ -4,12 +4,29 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate
 from django.http import HttpResponseRedirect
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .models import File
+from .forms import SignUpForm
 
 class Index(LoginRequiredMixin, View):
   template = 'index.html'
   login_url = '/login/'
   def get(self, request):
-    return render(request, self.template)
+    files = File.objects.all()
+    return render(request, self.template, {'files': files})
+
+class Register(View):
+  template = 'register.html'
+
+  def get(self, request):
+    form = SignUpForm()    
+    return render(request, self.template, {'form': form})
+
+  def post(self, request):
+    form = SignUpForm(request.POST)
+
+    if form.is_valid():
+      form.save()
+    return HttpResponseRedirect('/login')
 
 class Login(View):
   template = 'login.html'

@@ -14,4 +14,4 @@ class File(models.Model):
   downloads = models.IntegerField(default=0)
 
   def __str__(self):
-    return {self.filename, self.uploader, self.upload_time}
+    return self.name

@@ -14,14 +14,19 @@ Home
     {% csrf_token %}
   <div class="form-group">
     <div class="form-label-group">
-      {{ form.username }}
+      Username {{ form.username }}
     </div>
   </div>
   <div class="form-group">
     <div class="form-label-group">
-      {{ form.password }}
+      Password {{ form.password }}
     </div>
   </div>
   <button class="btn btn-primary btn-block" type="submit">Login</button>    
 </section>  
+
+<section>
+  <h>New User? Register from below</h>
+  <button class="btn btn-primary btn-block" type="button">Register</button>  
+</section>
 {% endblock %}

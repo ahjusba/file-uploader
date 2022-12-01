@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+<section>
+  <form method="post" action="/register/">
+    {% csrf_token %}
+
+    <div class="form-group">
+      <div class="form-label-group">
+        Username {{ form.username }}
+      </div>
+      <div class="form-label-group">
+        Organization {{ form.organization }}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="form-label-group">
+        Password {{ form.password1 }}
+      </div>
+      <div class="form-label-group">
+        Confirm Password {{ form.password2 }}
+      </div>
+    </div>
+  <button class="btn btn-primary btn-block" type="submit">Register</button>    
+</section>  
+
+
+{% endblock %}
