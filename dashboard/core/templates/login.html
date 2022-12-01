@@ -1,32 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>title</title>
-    <!-- <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script> -->
-  </head>
-  <body>
+{% extends 'base.html' %}
 
-    <header>
-      <p>This is the login.html page</p>
-    </header>
+{% block title %}
+Home
+{% endblock %}
 
-    <section>
-      <form method="post" action="/login/">
-        {% csrf_token %}
-      <div class="form-group">
-        <div class="form-label-group">
-          {{ form.username }}
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="form-label-group">
-          {{ form.password }}
-        </div>
-      </div>
-      <button class="btn btn-primary btn-block" type="submit">Login</button>    
-    </section>    
+{% block content %}
+<header>
+  <p>This is the login.html page</p>
+</header>
 
-  </body>
-</html>
+<section>
+  <form method="post" action="/login/">
+    {% csrf_token %}
+  <div class="form-group">
+    <div class="form-label-group">
+      {{ form.username }}
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="form-label-group">
+      {{ form.password }}
+    </div>
+  </div>
+  <button class="btn btn-primary btn-block" type="submit">Login</button>    
+</section>  
+{% endblock %}
